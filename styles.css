@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fffaf3;
+    color: #5c3d2e;
+}
+header {
+    background-color: #f5e0c3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+nav a {
+    text-decoration: none;
+    color: #5c3d2e;
+    font-weight: bold;
+}
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide img {
+    width: 100%;
+    height: auto;
+}
+.slider-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.slider-buttons button {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+    padding: 2em;
+}
+.item {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.item:hover {
+    transform: scale(1.05);
+}
+footer {
+    text-align: center;
+    background-color: #f5e0c3;
+    padding: 1em;
+    margin-top: 2em;
+}
