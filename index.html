@@ -1,69 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Pasta Lab</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js" defer></script>
 </head>
 <body>
     <header>
         <div class="logo">🍝 The Pasta Lab</div>
         <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#cart">Cart 🛒</a></li>
-            </ul>
+            <input type="text" id="search" placeholder="Cari pasta...">
+            <select id="categoryFilter">
+                <option value="all">Semua Kategori</option>
+                <option value="Spaghetti">Spaghetti</option>
+                <option value="Fusilli">Fusilli</option>
+                <option value="Penne">Penne</option>
+                <option value="Farfalle">Farfalle</option>
+                <option value="Rigatoni">Rigatoni</option>
+                <option value="Shells">Shells</option>
+            </select>
+            <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+            <button id="audioToggle">🔊</button>
         </nav>
     </header>
 
-    <section id="home" class="slider">
+    <section class="slider">
         <div class="slides">
-            <div class="slide active"><img src="https://picsum.photos/800/400?1" alt="Pasta 1"></div>
-            <div class="slide"><img src="https://picsum.photos/800/400?2" alt="Pasta 2"></div>
-            <div class="slide"><img src="https://picsum.photos/800/400?3" alt="Pasta 3"></div>
-        </div>
-        <div class="slider-buttons">
-            <button id="prev">&#10094;</button>
-            <button id="next">&#10095;</button>
+            <img src="assets/images/slide1.svg" alt="Spaghetti">
+            <img src="assets/images/slide2.svg" alt="Fusilli">
+            <img src="assets/images/slide3.svg" alt="Penne">
         </div>
     </section>
 
-    <section id="menu">
-        <h2>Our Pasta Menu</h2>
-        <div class="menu-items">
-            <div class="item">
-                <img src="https://picsum.photos/200?4" alt="Spaghetti">
-                <h3>Spaghetti</h3>
-                <p>$10</p>
-                <button onclick="addToCart('Spaghetti', 10)">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="https://picsum.photos/200?5" alt="Fettuccine">
-                <h3>Fettuccine</h3>
-                <p>$12</p>
-                <button onclick="addToCart('Fettuccine', 12)">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="https://picsum.photos/200?6" alt="Penne">
-                <h3>Penne</h3>
-                <p>$9</p>
-                <button onclick="addToCart('Penne', 9)">Add to Cart</button>
-            </div>
+    <main>
+        <h1>Menu Pasta</h1>
+        <div id="productList" class="product-list"></div>
+    </main>
+
+    <div id="cartModal" class="modal hidden">
+        <div class="modal-content">
+            <span id="closeCart" class="close">&times;</span>
+            <h2>Keranjang Belanja</h2>
+            <div id="cartItems"></div>
+            <p id="cartTotal"></p>
+            <button id="checkoutBtn">Checkout</button>
         </div>
-    </section>
+    </div>
 
-    <section id="cart">
-        <h2>Your Cart</h2>
-        <ul id="cart-items"></ul>
-        <p id="total">Total: $0</p>
-        <button onclick="checkout()">Checkout</button>
-    </section>
+    <div id="checkoutModal" class="modal hidden">
+        <div class="modal-content">
+            <span id="closeCheckout" class="close">&times;</span>
+            <h2>Checkout</h2>
+            <div id="checkoutSummary"></div>
+            <form id="checkoutForm">
+                <input type="text" placeholder="Nama" required>
+                <input type="text" placeholder="Alamat" required>
+                <input type="text" placeholder="No. HP" required>
+                <button type="submit">Pesan</button>
+            </form>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 The Pasta Lab. All rights reserved.</p>
-    </footer>
+    <audio id="bgMusic" loop>
+        <source src="assets/audio/backsound.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="app.js"></script>
 </body>
 </html>
